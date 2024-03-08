@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,17 +13,18 @@ export class SpotifyService {
 
   }
 
-  getNewReleases(){
+  getNewReleases(): Observable<any>{
 
     //Token obtenido con Postman siguiendo instrucciones de https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
     const headers = new HttpHeaders({
-      'Authorization' : 'Bearer BQBufm68qKYd6RZQ4V-Yt9zc9G3oteNrF9arpH2VoAgHwgAdpE7WjQmM-Vzbec2XGHWjsWNsvPe1Z-UGdZgKxngIPevA_W7AgbH5-l6C9PHn0WuhMH8'
+      'Authorization' : 'Bearer BQD2Bs5Rbgd3WhFaVoYYuQKIMxu3lHBD1gSoZyohf96XD35pp3G4Ud5NrzGL-PkL8WllKWffzQaJYiYpeTZ3ojafpCJAlFhh64nQD2AA1u03Fy4TRM8'
     });
 
-    this.http.get( 'https://api.spotify.com/v1/browse/new-releases',{ headers })
-        .subscribe( data => {
-            console.log(data);
-        });
+    return this.http.get( 'https://api.spotify.com/v1/browse/new-releases',{ headers });
 
   }
+
+
+
+
 }
