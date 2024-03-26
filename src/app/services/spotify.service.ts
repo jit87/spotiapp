@@ -21,7 +21,7 @@ export class SpotifyService {
     //Token obtenido con Postman siguiendo instrucciones de https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
     //El token caduca a la hora, para renovarlo hay que utilizar Postman
     const headers = new HttpHeaders({
-      'Authorization' : 'Bearer BQB-GXhwv_01LMKFf2awfDCqEEeYMFkEtB5VfnAGIQRosdauPh6TTujaCEPA1trI9XiMSGjReGyaA49WfZ_LoTVcNryS6OnThP6PupJJ6bv9ZU_gtjI'
+      'Authorization' : 'Bearer BQCoyUMahDap4ACj--ou-POrNxCGI7O3frxa06WGAubNRYCAUH3sY1ssRAusfaYO03ivXYNX9sl3XH1rmgOTQUDJsw0Z-8FPBC1AuUxLNHWxg0SJMf4'
     });
 
     return this.http.get(url, {headers});
@@ -38,12 +38,32 @@ export class SpotifyService {
   
 
 
-  getArtista( termino: string ){
+  getArtistas( termino: string ){
     return this.getQuery( 'search?q=' + termino + '&type=artist')
                     .pipe( map( (data:any) => {
                       return data.artists.items; 
                   }) );
   }
+
+
+  
+  getArtista( id: string ){
+    return this.getQuery( `artists/${id}`);
+  }
+
+
+
+
+  getTopTracks( id: string ){
+    return this.getQuery( `artists/${id}/top-tracks?country=us`)
+               .pipe(map( (data:any) => data['tracks']));
+  }
+
+
+
+
+
+
 
 
 

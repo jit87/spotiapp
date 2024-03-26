@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -35,7 +36,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot( ROUTES , { useHash: true })
+    RouterModule.forRoot( ROUTES , { useHash: true }),
+    CommonModule
   ],
   providers: [
     SpotifyService
