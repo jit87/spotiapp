@@ -21,7 +21,7 @@ export class SpotifyService {
     //Token obtenido con Postman siguiendo instrucciones de https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
     //El token caduca a la hora, para renovarlo hay que utilizar Postman
     const headers = new HttpHeaders({
-      'Authorization' : 'Bearer BQCoyUMahDap4ACj--ou-POrNxCGI7O3frxa06WGAubNRYCAUH3sY1ssRAusfaYO03ivXYNX9sl3XH1rmgOTQUDJsw0Z-8FPBC1AuUxLNHWxg0SJMf4'
+      'Authorization' : 'Bearer BQAnFpdH_xdlYVn3CngkO3ycrEPb3Dv1I8UGNtShNVck6NSaMPebfAEfzdO5WAgWdFlB-PO-EIP0SZlpOBDJ0oBjfOf1JGF0HqXKHAPYIenGEi6kb0g'
     });
 
     return this.http.get(url, {headers});
